@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_25_172240) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_13_145523) do
   create_table "questions", force: :cascade do |t|
     t.string "text"
     t.string "answer"
@@ -23,5 +23,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_25_172240) do
     t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email"
+    t.string "password_hash"
+    t.string "password_salt"
+    t.string "avatar_url"
   end
 end
