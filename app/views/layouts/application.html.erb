@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Askme" %></title>
+    <title><%= content_for(:title) || "Ask kind questions" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -22,6 +22,28 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <div class="header">
+      <div class="container">
+        <div class="header-logo">
+          <h1 class="header-title"><%= link_to "Ask kind questions", root_path %></h1>
+        </div>
+    </div>
+
+      <div calss="content">
+        <div class="container">
+          <% if flash.any? %>
+           <div class="content-wrapper buffer-both">
+             <% flash.each do |name, message| %>
+               <%= content_tag :div, message, class: "flash-#{name}" %>
+             <% end %>
+           </div>
+          <% end %>
+          
+          <%= yield %>
+        </div>  
+      </div>
+    </div>
+    
   </body>
 </html>
